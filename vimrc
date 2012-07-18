@@ -1,0 +1,1 @@
+/export/home/ba5524/vimstuff/_vimrc
