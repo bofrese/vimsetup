@@ -29,6 +29,9 @@ set incsearch
 set cursorline
 set ruler
 
+" Make vimdiff ignore whitespace changes.
+set diffopt+=iwhite
+
 " Jump to tag
 map <F9> <C-]>
 " back from tag
