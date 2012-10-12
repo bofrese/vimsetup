@@ -19,9 +19,10 @@ syntax on
 filetype plugin indent on
 
 set autoindent
-set shiftwidth=2
-set softtabstop=2
-"set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set shiftround
+set tabstop=4
 set expandtab
 set hlsearch
 " Enable incremental search
@@ -65,5 +66,20 @@ map <PageDown> <C-PageDown>
 map <PageUp> <C-PageUp>
 imap <PageDown> <C-PageDown>
 imap <PageUp> <C-PageUp>
+
+map <F4> :cnext<cr>
+
+" ....... my Perl specific stuff ......................
+iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
+iab pmod :r ~/.vim/code_templates/perl_module.pm<CR>
+
+" TEST: not sure what this does ....  :-)
+let perl_include_pod = 1
+let perl_extend_vars = 1
+
+nmap <leader>t :%! perltidy -pro=$HOME/.vim/perltidyrc -q<CR>
+vmap <leader>t :! perltidy  -pro=$HOME/.vim/perltidyrc -q<CR>
+
+
 
 
