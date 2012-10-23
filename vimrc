@@ -68,6 +68,7 @@ imap <PageDown> <C-PageDown>
 imap <PageUp> <C-PageUp>
 
 map <F4> :cnext<cr>
+map <F5> :tabnew<cr>
 
 " ....... my Perl specific stuff ......................
 iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
