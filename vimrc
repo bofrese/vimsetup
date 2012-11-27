@@ -39,8 +39,6 @@ map <F9> <C-]>
 map <S-F9> <C-T>
 map <F8> <C-T>
 
-map <F12> <C-^>
-
 " My addons.....
 let mapleader = ","
 map <F12> <C-^>
@@ -50,7 +48,8 @@ map <C-F12> :FufTaggedFile<CR>
 map <S-F12> :FufCoverageFile<CR>
 
 map <leader>m :FufMruFile<CR>
-map <leader>n :NERDTreeToggle<CR>
+"map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 map <leader>N :NERDTreeMirror<CR>
 
 " Jump to tag
@@ -59,6 +58,8 @@ map <F11> <C-]>
 map <S-F11> <C-T>
 " Fuzzy tag find 
 map <C-F11> :FufTag<CR>
+" Create a new tags file in the current directory.
+map <S-C-F11> :!makeperltags<CR>
 
 
 " Next and prev. tab
@@ -67,12 +68,16 @@ map <PageUp> <C-PageUp>
 imap <PageDown> <C-PageDown>
 imap <PageUp> <C-PageUp>
 
+" Next Quickfix (F.ex for use with result from :Ack)
 map <F4> :cnext<cr>
+" Create a new tab window
 map <F5> :tabnew<cr>
 
 " ....... my Perl specific stuff ......................
 iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
 iab pmod :r ~/.vim/code_templates/perl_module.pm<CR>
+
+set iskeyword+=:
 
 " TEST: not sure what this does ....  :-)
 let perl_include_pod = 1
@@ -81,6 +86,14 @@ let perl_extend_vars = 1
 nmap <leader>t :%! perltidy -pro=$HOME/.vim/perltidyrc -q<CR>
 vmap <leader>t :! perltidy  -pro=$HOME/.vim/perltidyrc -q<CR>
 
+" do not scan @INC when autocompleting. Way too slow :-(
+set complete-=i
 
+"............. Ack
+map <F6> :tabnew<CR>:AckFromSearch . -a ~algo/autodoc/jcl<CR>
 
+"................. Session options ..............
+nmap <leader>s :mksession! $HOME/.vimsession<CR>
+nmap <leader>S :mksession! $HOME/.vimsession<CR>:qa<CR>
+nmap <leader>r :source $HOME/.vimsession<CR>
 
