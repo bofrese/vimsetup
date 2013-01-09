@@ -46,6 +46,7 @@ map <F12> <C-^>
 map <C-F12> :FufTaggedFile<CR>
 " Fuzzy serach in file recursively from cwd
 map <S-F12> :FufCoverageFile<CR>
+map <F7> :FufCoverageFile<CR>
 
 map <leader>m :FufMruFile<CR>
 "map <leader>n :NERDTreeToggle<CR>
@@ -93,7 +94,11 @@ set complete-=i
 map <F6> :tabnew<CR>:AckFromSearch . -a ~algo/autodoc/jcl<CR>
 
 "................. Session options ..............
-nmap <leader>s :mksession! $HOME/.vimsession<CR>
-nmap <leader>S :mksession! $HOME/.vimsession<CR>:qa<CR>
-nmap <leader>r :source $HOME/.vimsession<CR>
+"nmap <leader>s :mksession! $HOME/.vimsession<CR>
+"nmap <leader>S :mksession! $HOME/.vimsession<CR>:qa<CR>
+"nmap <leader>r :source $HOME/.vimsession<CR>
 
+" Use vimsession in current directory................
+nmap <leader>s :mksession! .vimsession<CR>
+nmap <leader>S :mksession! .vimsession<CR>:qa<CR>
+nmap <leader>r :source .vimsession<CR>
