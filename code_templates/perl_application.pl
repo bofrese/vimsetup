@@ -15,7 +15,6 @@
 
 =head1 AUTHOR
 
-  Bo Frese (ba5524) <ras@danskebank.dk>
 
 =head1 HISTORY
 
