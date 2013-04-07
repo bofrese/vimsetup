@@ -25,7 +25,8 @@ if !has("win32")
 "Bitstream Vera Sans Mono14 
 "Courier New:h16
 "Liberation Mono:h14
-set guifont=Monospace\ 14
+"set guifont=Monospace\ 14
+set guifont=Monospace\ 12
 endif
 
 highlight Folded guibg=#111111
