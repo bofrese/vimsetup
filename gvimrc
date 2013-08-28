@@ -11,8 +11,8 @@ if has("gui_running")
   set t_Co=256
   "colorscheme vibrantink 
   colorscheme ir_black_my
-  set lines=40
-  set columns=115
+"  set lines=40
+"  set columns=115
 endif
 
 set nocompatible          " We're running Vim, not Vi!
@@ -30,9 +30,12 @@ set guifont=Monospace\ 12
 endif
 
 highlight Folded guibg=#111111
+"highlight SignColumn guifg=black guibg=darkgray gui=underline ctermfg=black ctermbg=black cterm=underline
+highlight SignColumn guifg=darkgray guibg=#0C0C0C gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=underline
 
 hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray cterm=NONE 
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
 hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
 
 
+set iskeyword+=:
