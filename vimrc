@@ -33,6 +33,9 @@ set hlsearch
 set incsearch
 set cursorline
 set ruler
+" Automatically read buffer if file has changed on disk... (typically after a
+" git checkcheckout or simmilar....
+set autoread
 
 " Make vimdiff ignore whitespace changes.
 set diffopt+=iwhite
@@ -75,6 +78,11 @@ map <PageUp> <C-PageUp>
 imap <PageDown> <C-PageDown>
 imap <PageUp> <C-PageUp>
 
+" Easy navigation between 'split' windows
+map <C-LEFT> <C-w>h
+map <C-RIGHT> <C-w>l
+map <C-UP> <C-w>k
+map <C-DOWN> <C-w>j
 
 " ....... my Perl specific stuff ......................
 iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
@@ -107,7 +115,7 @@ map <S-F2> :cf quickfix.vim_sorted<CR>:copen<CR>
 map <F3> :cprev<cr>
 map <F4> :cnext<cr>
 
-map <F6> :tabnew<CR>:LAckFromSearch . --perl --shell <CR>
+map <F6> :tabnew<CR>:LAckFromSearch .  --type-add perl=.cfg --perl --shell <CR>
 map <F7> :lprev<cr>
 map <F8> :lnext<cr>
 
