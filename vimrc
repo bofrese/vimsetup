@@ -29,6 +29,8 @@ set hlsearch
 set incsearch
 set cursorline
 set ruler
+set ignorecase
+set smartcase
 
 " Make vimdiff ignore whitespace changes.
 set diffopt+=iwhite
@@ -68,6 +70,11 @@ map <PageDown> <C-PageDown>
 map <PageUp> <C-PageUp>
 imap <PageDown> <C-PageDown>
 imap <PageUp> <C-PageUp>
+" On Mac also support Cmd-arrow ....
+map <D-Right> <C-PageDown>
+imap <D-Right> <C-PageDown>
+map <D-Left> <C-PageUp>
+imap <D-Left> <C-PageUp>
 
 " Next Quickfix (F.ex for use with result from :Ack)
 map <F4> :cnext<cr>
@@ -87,11 +94,19 @@ let perl_extend_vars = 1
 nmap <leader>t :%! perltidy -pro=$HOME/.vim/perltidyrc -q<CR>
 vmap <leader>t :! perltidy  -pro=$HOME/.vim/perltidyrc -q<CR>
 
+" Uppercase K on a keyword look it up in perldoc
+set keywordprg=perldoc\ -f
+" Spell checking in comments
+set spell
+
+" Nice template for new files... (works on :n newfile.pl, but not in NERDtree)
+autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template 
+
 " do not scan @INC when autocompleting. Way too slow :-(
 set complete-=i
 
 "............. Ack
-map <F6> :tabnew<CR>:AckFromSearch . -a ~algo/autodoc/jcl<CR>
+map <F6> :tabnew<CR>:AckFromSearch . -k <CR>
 
 "................. Session options ..............
 "nmap <leader>s :mksession! $HOME/.vimsession<CR>

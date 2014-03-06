@@ -19,14 +19,18 @@ set nocompatible          " We're running Vim, not Vi!
 if has("win32")
 set guifont=Consolas:h12
 endif
-if !has("win32")
-"set guifont=Monaco:h13
-"set guifont=Screen:h13
-"Bitstream Vera Sans Mono14 
-"Courier New:h16
-"Liberation Mono:h14
-"set guifont=Monospace\ 14
-set guifont=Monospace\ 12
+if has("unix")
+    if has("gui_macvim")
+        set guifont=Monaco:h13
+    else
+        "set guifont=Monaco:h13
+        "set guifont=Screen:h13
+        "Bitstream Vera Sans Mono14 
+        "Courier New:h16
+        "Liberation Mono:h14
+        "set guifont=Monospace\ 14
+        set guifont=Monospace\ 12
+    endif
 endif
 
 highlight Folded guibg=#111111
@@ -35,4 +39,10 @@ hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
 hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
 
+
+" On Mac also support Cmd-arrow ....
+map <D-Right> <C-PageDown>
+imap <D-Right> <C-PageDown>
+map <D-Left> <C-PageUp>
+imap <D-Left> <C-PageUp>
 
