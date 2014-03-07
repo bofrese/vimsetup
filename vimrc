@@ -7,6 +7,10 @@ hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
 hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
 
+" for quickfixsign
+"highlight SignColumn ctermbg=Black guibg=Black
+"highlight SignColumn guifg=darkgray guibg=black gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
+"
 
 
 "let g:fuf_modesDisable = [ 'mrufile', 'mrucmd', ]
@@ -32,6 +36,10 @@ set ruler
 set ignorecase
 set smartcase
 
+" Automatically read buffer if file has changed on disk... (typically after a
+" git checkcheckout or simmilar....
+set autoread
+
 " Make vimdiff ignore whitespace changes.
 set diffopt+=iwhite
 
@@ -39,7 +47,7 @@ set diffopt+=iwhite
 map <F9> <C-]>
 " back from tag
 map <S-F9> <C-T>
-map <F8> <C-T>
+"map <F8> <C-T>
 
 " My addons.....
 let mapleader = ","
@@ -64,7 +72,9 @@ map <C-F11> :FufTag<CR>
 " Create a new tags file in the current directory.
 map <S-C-F11> :!makeperltags<CR>
 
-
+" Create a new tab window
+map <F5> :tabnew<cr>
+map <C-F5> :tabclose<cr>
 " Next and prev. tab
 map <PageDown> <C-PageDown>
 map <PageUp> <C-PageUp>
@@ -76,14 +86,18 @@ imap <D-Right> <C-PageDown>
 map <D-Left> <C-PageUp>
 imap <D-Left> <C-PageUp>
 
-" Next Quickfix (F.ex for use with result from :Ack)
-map <F4> :cnext<cr>
-" Create a new tab window
-map <F5> :tabnew<cr>
+" Easy navigation between 'split' windows
+map <C-LEFT> <C-w>h
+map <C-RIGHT> <C-w>l
+map <C-UP> <C-w>k
+map <C-DOWN> <C-w>j
 
 " ....... my Perl specific stuff ......................
 iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
 iab pmod :r ~/.vim/code_templates/perl_module.pm<CR>
+
+iab luf MCR::lookup_file('TODO');
+iab lufp MCR::lookup_file('TODO')->path(); 
 
 set iskeyword+=:
 
@@ -106,7 +120,20 @@ autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template
 set complete-=i
 
 "............. Ack
-map <F6> :tabnew<CR>:AckFromSearch . -k <CR>
+"map <F6> :tabnew<CR>:AckFromSearch . -a ~algo/autodoc/jcl<CR>
+"map <F6> :tabnew<CR>:AckFromSearch . --perl --shell  ~algo/autodoc/jcl<CR>
+"map <F6> :tabnew<CR>:AckFromSearch . --perl --shell <CR>
+
+map <F2> :cf quickfix.vim<CR>:copen<CR>
+map <S-F2> :cf quickfix.vim_sorted<CR>:copen<CR>
+
+" Next Quickfix (F.ex for use with result from :Ack)
+map <F3> :cprev<cr>
+map <F4> :cnext<cr>
+
+map <F6> :tabnew<CR>:LAckFromSearch .  --type-add perl=.cfg --perl --shell <CR>
+map <F7> :lprev<cr>
+map <F8> :lnext<cr>
 
 "................. Session options ..............
 "nmap <leader>s :mksession! $HOME/.vimsession<CR>
