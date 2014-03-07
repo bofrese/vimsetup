@@ -37,6 +37,11 @@ hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
 hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
 
+set cursorcolumn
+set cursorline
+highlight CursorColumn guibg=#0c0c0c  
+highlight CursorLine guibg=#222222  
+
 
 set iskeyword+=:
 
