@@ -48,6 +48,10 @@ map <F9> <C-]>
 " back from tag
 map <S-F9> <C-T>
 "map <F8> <C-T>
+" Fuzzy tag find 
+map <C-F9> :FufTag<CR>
+" Create a new tags file in the current directory.
+map <S-C-F9> :!makeperltags<CR>
 
 " My addons.....
 let mapleader = ","
@@ -64,13 +68,7 @@ map <leader>n :NERDTreeFind<CR>
 map <leader>N :NERDTreeMirror<CR>
 
 " Jump to tag
-map <F11> <C-]>
-" Jump back from tag
-map <S-F11> <C-T>
-" Fuzzy tag find 
-map <C-F11> :FufTag<CR>
-" Create a new tags file in the current directory.
-map <S-C-F11> :!makeperltags<CR>
+noremap <silent> <F11> :BufExplorer<CR>
 
 " Create a new tab window
 map <F5> :tabnew<cr>
@@ -101,15 +99,6 @@ iab lufp MCR::lookup_file('TODO')->path();
 
 set iskeyword+=:
 
-" TEST: not sure what this does ....  :-)
-let perl_include_pod = 1
-let perl_extend_vars = 1
-
-nmap <leader>t :%! perltidy -pro=$HOME/.vim/perltidyrc -q<CR>
-vmap <leader>t :! perltidy  -pro=$HOME/.vim/perltidyrc -q<CR>
-
-" Uppercase K on a keyword look it up in perldoc
-set keywordprg=perldoc\ -f
 " Spell checking in comments
 set spell
 
@@ -144,3 +133,31 @@ map <F8> :lnext<cr>
 nmap <leader>s :mksession! .vimsession<CR>
 nmap <leader>S :mksession! .vimsession<CR>:qa<CR>
 nmap <leader>r :source .vimsession<CR>
+
+
+
+" Configure  SuperTab
+set completeopt=longest,menuone,preview
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabLongestEnhanced = 1
+
+" Git statusline
+"set statusline+=%{fugitive\#statusline()}
+if has('statusline')
+         set laststatus=2
+
+         " Broken down into easily includeable segments
+         set statusline=%<%f\\   " Filename
+         set statusline+=%w%h%m%r " Options
+         set statusline+=%{fugitive\#statusline()} "  Git Hotness
+         "set statusline+=\\[%{&ff}/%Y]            " filetype
+         set statusline+=\\[%{getcwd()}]          " current dir
+         "set statusline+=\\ [A=\\%03.3b/H=\\%02.2B] " ASCII / Hexadecimal value of char
+         set statusline+=%=%-14.(%l,%c%V%)\\%p%%  " Right aligned file nav info
+endif
+
+
+" UTF8 encoding stuff: TODO: Verify
+set enc=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf8,prc
