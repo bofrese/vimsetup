@@ -1,5 +1,6 @@
 set background=dark
-colorscheme ir_black_my
+"colorscheme ir_black_my
+colorscheme Tomorrow-Night-Eighties
 
 "get rid of scrollbar....
 set guioptions-=r
