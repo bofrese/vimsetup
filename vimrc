@@ -89,6 +89,10 @@ map <C-LEFT> <C-w>h
 map <C-RIGHT> <C-w>l
 map <C-UP> <C-w>k
 map <C-DOWN> <C-w>j
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " ....... my Perl specific stuff ......................
 iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
@@ -161,3 +165,10 @@ endif
 set enc=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf8,prc
+
+" .md should be MarDown - not Modula2 :-)
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" Enable Syntastic for perl (Waring - will run BEGIN code)
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_perl_checkers = ['perl']
