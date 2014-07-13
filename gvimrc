@@ -2,6 +2,9 @@ set background=dark
 "colorscheme ir_black_my
 colorscheme Tomorrow-Night-Eighties
 
+" EXPERIMENTAL: font glyphs in the status line....
+let g:airline_powerline_fonts = 1
+
 "get rid of scrollbar....
 set guioptions-=r
 set guioptions-=L
@@ -11,7 +14,8 @@ if has("gui_running")
   "tell the term has 256 colors
   set t_Co=256
   "colorscheme vibrantink 
-  colorscheme ir_black_my
+  "colorscheme ir_black_my
+  colorscheme Tomorrow-Night-Eighties
 "  set lines=40
 "  set columns=115
 endif
@@ -36,7 +40,8 @@ endif
 
 highlight Folded guibg=#111111
 "highlight SignColumn guifg=black guibg=darkgray gui=underline ctermfg=black ctermbg=black cterm=underline
-highlight SignColumn guifg=darkgray guibg=#0C0C0C gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=underline
+"highlight SignColumn guifg=darkgray guibg=#0C0C0C gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=underline
+highlight SignColumn guifg=darkgray guibg=#282828 gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=underline
 
 hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray cterm=NONE 
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
@@ -44,8 +49,8 @@ hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cter
 
 set cursorcolumn
 set cursorline
-highlight CursorColumn guibg=#0c0c0c  
-highlight CursorLine guibg=#222222  
+highlight CursorColumn guibg=#2a2a2a
+highlight CursorLine guibg=#252525
 
 " On Mac also support Cmd-arrow ....
 map <D-Right> <C-PageDown>
