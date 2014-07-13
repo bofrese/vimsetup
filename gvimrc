@@ -58,7 +58,6 @@ imap <D-Right> <C-PageDown>
 map <D-Left> <C-PageUp>
 imap <D-Left> <C-PageUp>
 
-set iskeyword+=:
 
 """"""""""" MCR MENU """""""""""
 menu MCR.CreditRisk :tabnew<CR>:cd $RWC_ROOT<CR>:NERDTree<CR>

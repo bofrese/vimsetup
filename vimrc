@@ -94,23 +94,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" ....... my Perl specific stuff ......................
-iab papp :r ~/.vim/code_templates/perl_application.pl<CR>
-iab pmod :r ~/.vim/code_templates/perl_module.pm<CR>
-
-iab luf MCR::lookup_file('TODO');
-iab lufp MCR::lookup_file('TODO')->path(); 
-
-set iskeyword+=:
-
 " Spell checking in comments
 set spell
 
 " Nice template for new files... (works on :n newfile.pl, but not in NERDtree)
 autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template 
 
-" do not scan @INC when autocompleting. Way too slow :-(
-set complete-=i
 
 "............. Ack
 "map <F6> :tabnew<CR>:AckFromSearch . -a ~algo/autodoc/jcl<CR>
