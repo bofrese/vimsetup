@@ -54,15 +54,10 @@ imap <D-Left> <C-PageUp>
 
 set iskeyword+=:
 
-""""""""""" MCR MENU """""""""""
-menu MCR.CreditRisk :tabnew<CR>:cd $RWC_ROOT<CR>:NERDTree<CR>
-menu MCR.Scheduler :tabnew<CR>:cd $ECCODE<CR>:NERDTree<CR>
-menu MCR.Algo :tabnew<CR>:cd $ALGO_ROOT<CR>:NERDTree<CR>
-menu MCR.Portal :tabnew<CR>:cd $PORTAL_ROOT<CR>:NERDTree<CR>
-menu MCR.Tools :tabnew<CR>:cd $TOOLS_ROOT<CR>:NERDTree<CR>
-menu MCR.Local :tabnew<CR>:cd $LOCAL_ROOT<CR>:NERDTree<CR>
-menu MCR.CCRDATA :tabnew<CR>:cd $CCRDATA<CR>:NERDTree<CR>
-
-menu Settings.rwc_config :tabnew<CR>:n $HOME/.rwc_config<CR>
+"""""" custom menu """"""""""
 menu Settings.gvimrc :tabnew<CR>:n $HOME/.gvimrc<CR>
 menu Settings.vimrc :tabnew<CR>:n $HOME/.vimrc<CR>
+if filereadable($HOME . "/.vimmenu")
+    source $HOME/.vimmenu
+endif
+
