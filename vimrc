@@ -39,6 +39,8 @@ set smartcase
 " Automatically read buffer if file has changed on disk... (typically after a
 " git checkcheckout or simmilar....
 set autoread
+" :DifOrig will make a diff between the current buffer and the content saved to disk
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 " Make vimdiff ignore whitespace changes.
 set diffopt+=iwhite
@@ -95,7 +97,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Spell checking in comments
-set spell
+"set spell
 
 " Nice template for new files... (works on :n newfile.pl, but not in NERDtree)
 autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template 
@@ -144,7 +146,7 @@ if has('statusline')
          set statusline+=%w%h%m%r " Options
          set statusline+=%{fugitive\#statusline()} "  Git Hotness
          "set statusline+=\\[%{&ff}/%Y]            " filetype
-         set statusline+=\\[%{getcwd()}]          " current dir
+         "set statusline+=\\[%{getcwd()}]          " current dir
          "set statusline+=\\ [A=\\%03.3b/H=\\%02.2B] " ASCII / Hexadecimal value of char
          set statusline+=%=%-14.(%l,%c%V%)\\%p%%  " Right aligned file nav info
 endif
@@ -166,3 +168,7 @@ let g:syntastic_perl_checkers = ['perl']
 let g:csv_nomap_cr = 1
 let g:csv_nomap_space = 1
 let g:csv_nomap_enter = 1
+
+" Configure CtrlP (http://kien.github.io/ctrlp.vim/)
+" Switch to the git root of the current file when starting ctrl-p
+let g:ctrlp_working_path_mode = 'ra'
