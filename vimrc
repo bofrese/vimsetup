@@ -162,7 +162,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Enable Syntastic for perl (Waring - will run BEGIN code)
 let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_perl_checkers = ['perl','perlcritic']
+map <C-F8> :SyntasticCheck<CR>:Errors<CR>
 
 " CSV file plugin... disable some keyboard shortcuts.
 let g:csv_nomap_cr = 1
