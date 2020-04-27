@@ -43,7 +43,8 @@ set autoread
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 " Make vimdiff ignore whitespace changes.
-set diffopt+=iwhite
+" TODO: Generates error on Mac?
+"set diffopt+=iwhite
 
 " Jump to tag
 map <F9> <C-]>
@@ -115,7 +116,8 @@ map <S-F2> :cf quickfix.vim_sorted<CR>:copen<CR>
 map <F3> :cprev<cr>
 map <F4> :cnext<cr>
 
-map <F6> :tabnew<CR>:LAckFromSearch .  --type-add perl=.cfg --perl --shell <CR>
+"map <F6> :tabnew<CR>:LAckFromSearch .  --type-add perl=.cfg --perl --shell <CR>
+map <F6> :tabnew<CR>:LAckFromSearch .  --type-add perl=.cfg <CR>
 map <F7> :lprev<cr>
 map <F8> :lnext<cr>
 
@@ -173,3 +175,12 @@ let g:csv_nomap_enter = 1
 " Configure CtrlP (http://kien.github.io/ctrlp.vim/)
 " Switch to the git root of the current file when starting ctrl-p
 let g:ctrlp_working_path_mode = 'ra'
+
+
+" Only for Mac OSX with Dash installed.... //TODO add if OSX
+nmap <silent> <leader>d <Plug>DashSearch
+
+if has("gui_vimr")
+  " VimR specific stuff
+    set guifont=Monaco:h13
+endif

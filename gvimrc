@@ -22,7 +22,7 @@ endif
 
 set nocompatible          " We're running Vim, not Vi!
 if has("win32")
-set guifont=Consolas:h12
+    set guifont=Consolas:h12
 endif
 if has("unix")
     if has("gui_macvim")
@@ -47,7 +47,7 @@ hi TabLineSel guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray
 hi TabLineFill guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline 
 hi TabLine guifg=darkgray guibg=NONE gui=NONE ctermfg=darkgray ctermbg=NONE cterm=underline
 
-set cursorcolumn
+"set cursorcolumn
 set cursorline
 highlight CursorColumn guibg=#2a2a2a
 highlight CursorLine guibg=#252525
