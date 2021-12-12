@@ -35,6 +35,8 @@ set cursorline
 set ruler
 set ignorecase
 set smartcase
+" Enable mouse support in iTerm
+set mouse=a
 
 " Automatically read buffer if file has changed on disk... (typically after a
 " git checkcheckout or simmilar....
